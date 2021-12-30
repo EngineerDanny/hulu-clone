@@ -1,97 +1,96 @@
-const API_KEY = process.env.API_KEY;
-
-const BASE_MOVIE_ENDPOINT = `/discover/movie?api_key=${API_KEY}&with_genre=`;
-
-export default [
+export const API_KEY = process.env.API_KEY;
+export const BASE_MOVIE_ENDPOINT = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genre=`;
+export const BASE_IMG_ENDPOINT = "https://image.tmdb.org/t/p/original";
+export const CATEGORIES = [
   {
     title: "Trending",
     url: `${BASE_MOVIE_ENDPOINT}28`,
-    route: "/trending",
+    genre: "trending",
   },
   {
     title: "Top Rated",
     url: `${BASE_MOVIE_ENDPOINT}18`,
-    route: "/top-rated",
+    genre: "top-rated",
   },
   {
     title: "Action",
     url: `${BASE_MOVIE_ENDPOINT}28`,
-    route: "/action",
+    genre: "action",
   },
   {
     title: "Comedy",
     url: `${BASE_MOVIE_ENDPOINT}35`,
-    route: "/comedy",
+    genre: "comedy",
   },
   {
     title: "Horror",
     url: `${BASE_MOVIE_ENDPOINT}27`,
-    route: "/horror",
+    genre: "horror",
   },
   {
     title: "Romance",
     url: `${BASE_MOVIE_ENDPOINT}10749`,
-    route: "/romance",
+    genre: "romance",
   },
   {
     title: "Documentary",
     url: `${BASE_MOVIE_ENDPOINT}99`,
-    route: "/documentary",
+    genre: "documentary",
   },
   {
     title: "Sci-Fi",
     url: `${BASE_MOVIE_ENDPOINT}878`,
-    route: "/sci-fi",
+    genre: "sci-fi",
   },
   {
     title: "Thriller",
     url: `${BASE_MOVIE_ENDPOINT}53`,
-    route: "/thriller",
+    genre: "thriller",
   },
   {
     title: "Animation",
     url: `${BASE_MOVIE_ENDPOINT}16`,
-    route: "/animation",
+    genre: "animation",
   },
   {
     title: "Adventure",
     url: `${BASE_MOVIE_ENDPOINT}12`,
-    route: "/adventure",
+    genre: "adventure",
   },
   {
     title: "Family",
     url: `${BASE_MOVIE_ENDPOINT}10751`,
-    route: "/family",
+    genre: "family",
   },
   {
     title: "Mystery",
     url: `${BASE_MOVIE_ENDPOINT}9648`,
-    route: "/mystery",
+    genre: "mystery",
   },
   {
     title: "Drama",
     url: `${BASE_MOVIE_ENDPOINT}18`,
-    route: "/drama",
+    genre: "drama",
   },
   {
     title: "History",
     url: `${BASE_MOVIE_ENDPOINT}36`,
-    route: "/history",
+    genre: "history",
   },
   {
     title: "War",
     url: `${BASE_MOVIE_ENDPOINT}10752`,
-    route: "/war",
+    genre: "war",
   },
 
   {
     title: "Western",
     url: `${BASE_MOVIE_ENDPOINT}37`,
-    route: "/western",
+    genre: "western",
   },
   {
     title: "Musical",
     url: `${BASE_MOVIE_ENDPOINT}10402`,
-    route: "/musical",
+    genre: "musical",
   },
 ];
