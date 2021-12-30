@@ -3,4 +3,8 @@
 @tailwind utilities;
 
 @layer base {
+  body {
+    @apply bg-gray-800;
+    @apply text-gray-300;
+  }
 }
