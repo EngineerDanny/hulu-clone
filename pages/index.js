@@ -1,9 +1,12 @@
 import Head from "next/head";
 import Image from "next/image";
 import Header from "../components/Header";
+import MovieTile from "../components/MovieTile";
 import Nav from "../components/Nav";
 
-export default function Home() {
+import { CATEGORIES } from "../utils/constants";
+
+export default function Home({ movies }) {
   return (
     <div className="flex justify-center p-5 flex-col items-center">
       <Head>
@@ -12,9 +15,31 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
+      <Nav />
       <main>
-        <Nav />
+        {movies.map((movie) => {
+          return <MovieTile movie={movie} />;
+        })}
       </main>
     </div>
   );
 }
+
+export const getServerSideProps = async (context) => {
+  let genre = context.query.genre || "trending";
+  //Get the url matching the genre passed from the list
+  const category = CATEGORIES.find((c) => c.genre == genre);
+  //Get the url from the category
+  const url = category.url;
+  //Get the data from the url
+  const res = await fetch(url);
+
+  const { results } = await res.json();
+  console.log(results);
+  return {
+    props: {
+      genre: genre,
+      movies: results,
+    },
+  };
+};
