@@ -13,6 +13,7 @@ const Nav = () => {
           {CATEGORIES.map(({ title, genre }) => {
             return (
               <button
+                key={genre}
                 className="mr-6 first:ml-5 "
                 onClick={() => {
                   router.push(`?genre=${genre}`);
