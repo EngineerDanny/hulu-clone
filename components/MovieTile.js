@@ -13,6 +13,10 @@ const MovieTile = ({ movie }) => {
           objectFit="responsive"
           layout="fill"
           className=" rounded-lg"
+          placeholder="blur"
+          blurDataURL={`${BASE_IMG_ENDPOINT}${
+            movie.poster_path || movie.backdrop_path
+          }`}
         />
       </div>
       <p className="truncate w-full  tracking-wider">{movie.overview}</p>

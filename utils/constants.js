@@ -1,6 +1,11 @@
 export const API_KEY = process.env.API_KEY;
-export const BASE_MOVIE_ENDPOINT = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genre=`;
-export const BASE_IMG_ENDPOINT = "https://image.tmdb.org/t/p/original";
+export const BASE_MOVIE_ENDPOINT = `https://api.themoviedb.org/4/discover/movie?api_key=${API_KEY}&with_genres=`;
+export const BASE_IMG_ENDPOINT = "https://image.tmdb.org/t/p/w500";
+
+const trendingEndPoint = `https://api.themoviedb.org/4/trending/all/day?api_key=${API_KEY}&language=en-US`;
+const searchMovie =
+  "https://api.themoviedb.org/3/search/movie$apiKey&language=en-US&query=";
+
 export const CATEGORIES = [
   {
     title: "Trending",
@@ -41,11 +46,6 @@ export const CATEGORIES = [
     title: "Sci-Fi",
     url: `${BASE_MOVIE_ENDPOINT}878`,
     genre: "sci-fi",
-  },
-  {
-    title: "Thriller",
-    url: `${BASE_MOVIE_ENDPOINT}53`,
-    genre: "thriller",
   },
   {
     title: "Animation",

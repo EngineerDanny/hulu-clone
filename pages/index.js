@@ -30,6 +30,9 @@ export const getServerSideProps = async (context) => {
   const category = CATEGORIES.find((c) => c.genre === genre);
   //Get the url from the category
   const url = category.url;
+
+  console.log(url);
+  
   //Get the data from the url
   const res = await fetch(url);
 
