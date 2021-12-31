@@ -23,7 +23,7 @@ const Nav = () => {
           );
         })}
       </div>
-      <div className=" absolute top-0 right-0 h-10 w-10 bg-gradient-to-l from-gray-800" />
+      <div className=" absolute top-0 right-0 h-10 w-16 bg-gradient-to-l from-gray-800" />
     </div>
   );
 };

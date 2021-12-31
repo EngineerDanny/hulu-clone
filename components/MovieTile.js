@@ -3,8 +3,8 @@ import { BASE_IMG_ENDPOINT } from "../utils/constants";
 
 const MovieTile = ({ movie }) => {
   return (
-    <div className="flex flex-col space-y-1 mt-7 items-center ">
-      <div className="h-64  w-full relative">
+    <div className="flex flex-col space-y-1 mt-7 items-center hover:scale-105 transition  duration-[400ms] ">
+      <div className="h-64  w-full relative ">
         <Image
           src={`${BASE_IMG_ENDPOINT}${
             movie.poster_path || movie.backdrop_path
