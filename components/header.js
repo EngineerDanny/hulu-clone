@@ -6,6 +6,7 @@ import {
   SearchIcon,
   UserIcon,
 } from "@heroicons/react/outline";
+import Image from "next/image";
 
 const iconList = [
   {
@@ -42,7 +43,7 @@ const iconList = [
 
 export const IconComponent = ({ Icon, title }) => {
   return (
-    <div className="group flex flex-col items-center tracking-wide cursor-pointer">
+    <div className="group flex flex-col  items-center tracking-wide cursor-pointer">
       <Icon className="h-6 w-6 mb-1 transition group-hover:scale-150 group-hover:text-white" />
       <p className=" -mx-4 opacity-0 group-hover:opacity-100 group-hover:text-white text-sm">
         {title}
@@ -53,10 +54,14 @@ export const IconComponent = ({ Icon, title }) => {
 
 function Header() {
   return (
-    <div className="flex items-center space-x-2  text-gray-300">
-      {iconList.map(({ icon, title }, id) => {
-        return <IconComponent Icon={icon} title={title} key={id} />;
-      })}
+    <div className=" flex flex-col items-center  sm:flex-row sm:justify-between  w-full  ">
+      <div className="flex  items-center space-x-2 sm:space-x-6 lg:space-x-10  text-gray-300 sm:mt-4">
+        {iconList.map(({ icon, title }, id) => {
+          return <IconComponent Icon={icon} title={title} key={id} />;
+        })}
+      </div>
+      <div className="-my-3 sm:-mt-14" />
+      <Image src="/hulu.png" className="" alt="" width="120" height="100" />
     </div>
   );
 }

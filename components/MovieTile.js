@@ -3,7 +3,7 @@ import { BASE_IMG_ENDPOINT } from "../utils/constants";
 
 const MovieTile = ({ movie }) => {
   return (
-    <div className="flex flex-col space-y-1 mt-7 items-center w-[80vw]">
+    <div className="flex flex-col space-y-1 mt-7 items-center ">
       <div className="h-64  w-full relative">
         <Image
           src={`${BASE_IMG_ENDPOINT}${
@@ -19,7 +19,7 @@ const MovieTile = ({ movie }) => {
           }`}
         />
       </div>
-      <p className="truncate w-full  tracking-wider">{movie.overview}</p>
+      <p className="truncate w-full  tracking-wider text-xs">{movie.overview}</p>
       <h1 className="truncate w-full text-white font-bold">{movie.title}</h1>
     </div>
   );

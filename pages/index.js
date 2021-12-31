@@ -16,9 +16,11 @@ export default function Home({ movies }) {
       <Header />
       <Nav />
       <main>
-        {movies.map((movie) => {
-          return <MovieTile movie={movie} key={movie.id} />;
-        })}
+        <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5  gap-6">
+          {movies.map((movie) => {
+            return <MovieTile movie={movie} key={movie.id} />;
+          })}
+        </div>
       </main>
     </div>
   );
@@ -32,7 +34,7 @@ export const getServerSideProps = async (context) => {
   const url = category.url;
 
   console.log(url);
-  
+
   //Get the data from the url
   const res = await fetch(url);
 
