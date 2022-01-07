@@ -5,7 +5,7 @@ import Nav from "../components/Nav";
 
 import { CATEGORIES } from "../utils/constants";
 
-export default function Home({ movies }) {
+export default function Home({ movies, genre }) {
   return (
     <div className="flex justify-center p-5 flex-col items-center">
       <Head>
@@ -14,7 +14,7 @@ export default function Home({ movies }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <Nav />
+      <Nav currentGenre={genre} />
       <main>
         <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5  gap-6">
           {movies.map((movie) => {
@@ -37,9 +37,8 @@ export const getServerSideProps = async (context) => {
 
   //Get the data from the url
   const res = await fetch(url);
-
   const { results } = await res.json();
-  console.log(results[0].id);
+
   return {
     props: {
       genre: genre,
