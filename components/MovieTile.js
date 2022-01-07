@@ -19,8 +19,8 @@ const MovieTile = ({ movie }) => {
           }`}
         />
       </div>
-      <p className="truncate w-full  tracking-wider text-xs">{movie.overview}</p>
       <h1 className="truncate w-full text-white font-bold">{movie.title}</h1>
+      <p className="truncate w-full  tracking-wider text-xs">{movie.overview}</p>
     </div>
   );
 };

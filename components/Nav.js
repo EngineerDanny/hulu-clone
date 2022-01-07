@@ -2,7 +2,7 @@ import { CATEGORIES } from "../utils/constants";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
-const Nav = () => {
+const Nav = ({ currentGenre }) => {
   const router = useRouter();
   return (
     <div className="relative ">
@@ -16,7 +16,13 @@ const Nav = () => {
                 router.push(`?genre=${genre}`);
               }}
             >
-              <span className="whitespace-nowrap text-sm  hover:text-white transition   cursor-pointer active:text-pink-400">
+              <span
+                className={`whitespace-nowrap  hover:text-white transition cursor-pointer active:text-pink-400 leading-8 ${
+                  genre === currentGenre
+                    ? " text-white font-semibold"
+                    : "text-gray-400  "
+                }`}
+              >
                 {title}
               </span>
             </button>
