@@ -1,9 +1,16 @@
 import Image from "next/image";
 import { BASE_IMG_ENDPOINT } from "../utils/constants";
+import { useRouter } from "next/router";
 
 const MovieTile = ({ movie }) => {
+  const router = useRouter();
   return (
-    <div className="flex flex-col space-y-1 mt-7 items-center hover:scale-105 transition  duration-[400ms] ">
+    <div
+      className="flex flex-col space-y-1 mt-7 items-center hover:scale-105 transition  duration-[400ms] "
+      onClick={() => {
+        router.push(`/watch?v=${movie.id}`);
+      }}
+    >
       <div className="h-64  w-full relative ">
         <Image
           src={`${BASE_IMG_ENDPOINT}${
@@ -20,7 +27,9 @@ const MovieTile = ({ movie }) => {
         />
       </div>
       <h1 className="truncate w-full text-white font-bold">{movie.title}</h1>
-      <p className="truncate w-full  tracking-wider text-xs">{movie.overview}</p>
+      <p className="truncate w-full  tracking-wider text-xs">
+        {movie.overview}
+      </p>
     </div>
   );
 };

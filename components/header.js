@@ -44,7 +44,7 @@ const iconList = [
 export const IconComponent = ({ Icon, title }) => {
   return (
     <div className="group flex flex-col  items-center tracking-wide cursor-pointer">
-      <Icon className="h-6 w-6 mb-1 transition group-hover:scale-150 group-hover:text-white" />
+      <Icon className="h-7 w-15  mb-1 transition group-hover:scale-150 group-hover:text-white" />
       <p className=" -mx-4 opacity-0 group-hover:opacity-100 group-hover:text-white text-sm">
         {title}
       </p>
@@ -55,7 +55,7 @@ export const IconComponent = ({ Icon, title }) => {
 function Header() {
   return (
     <div className=" flex flex-col items-center  sm:flex-row sm:justify-between  w-full  ">
-      <div className="flex  items-center space-x-2 sm:space-x-6 lg:space-x-10  text-gray-300 sm:mt-4">
+      <div className="flex  items-center space-x-2 sm:space-x-6 lg:space-x-10  text-gray-400 sm:mt-4">
         {iconList.map(({ icon, title }, id) => {
           return <IconComponent Icon={icon} title={title} key={id} />;
         })}
