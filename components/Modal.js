@@ -19,7 +19,7 @@ export default function Modal({ isOpen, onClose, movie }) {
     } else {
       setTrailerUrl(null);
     }
-  });
+  }, [isOpen, movie]);
 
   return (
     <Transition.Root show={isOpen} as={Fragment}>
