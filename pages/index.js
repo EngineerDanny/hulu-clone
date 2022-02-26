@@ -1,11 +1,16 @@
 import Head from "next/head";
+import { Fragment, useRef, useState } from "react";
 import Header from "../components/Header";
 import MovieTile from "../components/MovieTile";
 import Nav from "../components/Nav";
+import Modal from "../components/Modal";
 
 import { CATEGORIES } from "../utils/constants";
 
 export default function Home({ movies, genre }) {
+  const [open, setOpen] = useState(false);
+  const [movie, setMovie] = useState(null);
+
   return (
     <div className="flex justify-center p-5 flex-col items-center">
       <Head>
@@ -18,10 +23,27 @@ export default function Home({ movies, genre }) {
       <main>
         <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5  gap-6">
           {movies.map((movie) => {
-            return <MovieTile movie={movie} key={movie.id} />;
+            return (
+              <MovieTile
+                movie={movie}
+                key={movie.id}
+                onClick={() => {
+                  // console.log("clicked");
+                  setOpen(!open);
+                  setMovie(movie);
+                }}
+              />
+            );
           })}
         </div>
       </main>
+      <Modal
+        isOpen={open}
+        onClose={() => {
+          setOpen(!open);
+        }}
+        movie={movie}
+      />
     </div>
   );
 }
@@ -32,13 +54,9 @@ export const getServerSideProps = async (context) => {
   const category = CATEGORIES.find((c) => c.genre === genre);
   //Get the url from the category
   const url = category.url;
-
-  console.log(url);
-
   //Get the data from the url
   const res = await fetch(url);
   const { results } = await res.json();
-
   return {
     props: {
       genre: genre,
