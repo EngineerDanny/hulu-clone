@@ -1,9 +1,7 @@
 import Image from "next/image";
 import { BASE_IMG_ENDPOINT } from "../utils/constants";
-import { useRouter } from "next/router";
 
 const MovieTile = ({ movie, onClick }) => {
-  const router = useRouter();
   return (
     <div
       className="flex flex-col space-y-1 mt-7 items-center hover:scale-105 transition  duration-[400ms] "

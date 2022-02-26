@@ -1,5 +1,4 @@
 import { CATEGORIES } from "../utils/constants";
-import Image from "next/image";
 import { useRouter } from "next/router";
 
 const Nav = ({ currentGenre }) => {

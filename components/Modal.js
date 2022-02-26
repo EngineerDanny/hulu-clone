@@ -1,26 +1,24 @@
-import { Fragment, useRef, useState, useEffect } from "react";
+import { Fragment, useState, useEffect } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { ExclamationIcon, XIcon } from "@heroicons/react/outline";
 import { Player } from "./Player";
 import movieTrailer from "movie-trailer";
-import Image from "next/image";
-import { BASE_IMG_ENDPOINT } from "../utils/constants";
 
 export default function Modal({ isOpen, onClose, movie }) {
-  //   const cancelButtonRef = useRef(null);
   const [trailerUrl, setTrailerUrl] = useState(null);
 
-  useEffect(() => {
+  useEffect(async () => {
     // use movie-trailer to get the trailer url
-    if (isOpen) {
-      movieTrailer(`${movie.title}`)
-        .then((url) => {
-          console.log(url);
-          setTrailerUrl(url ?? "https://www.youtube.com/watch?v=Ebv9_rNb5Ig");
-        })
-        .catch((err) => console.log(err));
+    if (isOpen === true) {          
+      try {
+        const url = await movieTrailer(`${movie.title}`);
+        console.log(url);
+        setTrailerUrl(url ?? "https://www.youtube.com/watch?v=Ebv9_rNb5Ig");
+      } catch (err) {
+        console.log(err);
+      }
+    } else {
+      setTrailerUrl(null);
     }
-
   });
 
   return (
