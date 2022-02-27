@@ -1,7 +1,5 @@
 import ReactPlayer from "react-player/lazy";
-import screenfull from "screenfull";
 import { useRouter } from "next/router";
-import { CATEGORIES } from "../utils/constants";
 
 export default function Watch() {
   const router = useRouter();
@@ -18,12 +16,7 @@ export default function Watch() {
         height="100%"
         controls={true}
         playing={true}
-        onStart={() => {
-          screenfull.request();
-        }}
-        onEnded={() => {
-          screenfull.exit();
-        }}
+       
       />
     </div>
   );

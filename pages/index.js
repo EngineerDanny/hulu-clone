@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Fragment, useRef, useState } from "react";
+import { useState } from "react";
 import Header from "../components/Header";
 import MovieTile from "../components/MovieTile";
 import Nav from "../components/Nav";

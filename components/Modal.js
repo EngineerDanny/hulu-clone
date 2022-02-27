@@ -6,7 +6,7 @@ import movieTrailer from "movie-trailer";
 export default function Modal({ isOpen, onClose, movie }) {
   const [trailerUrl, setTrailerUrl] = useState(null);
 
-  useEffect( () => {
+  useEffect(() => {
     // use movie-trailer to get the trailer url
     if (isOpen === true) {
       movieTrailer(movie?.title || "")
@@ -19,7 +19,7 @@ export default function Modal({ isOpen, onClose, movie }) {
     } else {
       setTrailerUrl(null);
     }
-  }, []);
+  }, [isOpen, movie]);
 
   return (
     <Transition.Root show={isOpen} as={Fragment}>
