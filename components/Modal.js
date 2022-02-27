@@ -6,20 +6,20 @@ import movieTrailer from "movie-trailer";
 export default function Modal({ isOpen, onClose, movie }) {
   const [trailerUrl, setTrailerUrl] = useState(null);
 
-  useEffect(async () => {
+  useEffect( () => {
     // use movie-trailer to get the trailer url
-    if (isOpen === true) {          
-      try {
-        const url = await movieTrailer(`${movie.title}`);
-        console.log(url);
-        setTrailerUrl(url ?? "https://www.youtube.com/watch?v=Ebv9_rNb5Ig");
-      } catch (err) {
-        console.log(err);
-      }
+    if (isOpen === true) {
+      movieTrailer(movie?.title || "")
+        .then((url) => {
+          setTrailerUrl(url ?? "https://www.youtube.com/watch?v=Ebv9_rNb5Ig");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     } else {
       setTrailerUrl(null);
     }
-  }, [isOpen, movie]);
+  }, []);
 
   return (
     <Transition.Root show={isOpen} as={Fragment}>
