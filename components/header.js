@@ -41,7 +41,7 @@ const iconList = [
   },
 ];
 
-export const IconComponent = ({ Icon, title }) => {
+const IconComponent = ({ Icon, title }) => {
   return (
     <div className="group flex flex-col  items-center tracking-wide cursor-pointer">
       <Icon className="h-7 w-15  mb-1 transition group-hover:scale-150 group-hover:text-white" />
